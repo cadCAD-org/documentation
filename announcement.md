@@ -10,13 +10,13 @@ This version addresses of some of the open cadCAD GitHub issues that will be res
 1. cadCAD parallelized simulations run in series
 	* https://github.com/cadCAD-org/cadCAD/issues/242
 2. test the validity of result counts between what is specified by the API and the the expected results 
-* GitHub Issue: #248
+	* https://github.com/cadCAD-org/cadCAD/issues/248
 3. A/B test of result count between releases
-* GitHub Issue: #248 
+	* https://github.com/cadCAD-org/cadCAD/issues/248
 4. we need Jupyter Server to recognizing cadCAD module
-* Github Issue: #252 
+	* https://github.com/cadCAD-org/cadCAD/issues/252
 5. ValueError gives mis-leading error message if catching a non-related ValueError
-* GitHub Issue: #257
+	* https://github.com/cadCAD-org/cadCAD/issues/257
 
 ### ToDo:
 * Update https://github.com/cadCAD-org/demos with changes to system models
