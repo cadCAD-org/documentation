@@ -35,9 +35,9 @@ The release of this cadCAD Beta coincides with extended cadCAD functionality spe
 	pip install dist/*.whl
 	```
 * **Option 2:** Download Package
-** `cd` into your exsisting cadCAD project's root directory
-** Download and place [`cadCAD-0.4.25-py3-none-any.whl`](https://github.com/cadCAD-org/cadCAD/blob/staging/dist/cadCAD-0.4.25-py3-none-any.whl) in your project's root directory OR `wget https://github.com/cadCAD-org/cadCAD/blob/staging/dist/cadCAD-0.4.25-py3-none-any.whl`
-** `pip install cadCAD-0.4.25-py3-none-any.whl`
+* `cd` into your exsisting cadCAD project's root directory
+* Download and place [`cadCAD-0.4.25-py3-none-any.whl`](https://github.com/cadCAD-org/cadCAD/blob/staging/dist/cadCAD-0.4.25-py3-none-any.whl) in your project's root directory OR `wget https://github.com/cadCAD-org/cadCAD/blob/staging/dist/cadCAD-0.4.25-py3-none-any.whl`
+* `pip install cadCAD-0.4.25-py3-none-any.whl`
 - [ ] Make neccessary cadCAD Changes: see [CHANGELOG](https://github.com/cadCAD-org/cadCAD/blob/staging/CHANGELOG.md)
 - [ ] Create `labs.py` in root directory: [Example](https://github.com/JEJodesty/demos/blob/main/labs.py) 
   - [ ] import `cadCAD.configuration.Experiment()` object the you simulation you want to run on Labs
