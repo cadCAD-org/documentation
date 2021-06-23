@@ -8,16 +8,14 @@ This version addresses of some of the open cadCAD GitHub issues that will be res
 
 ### GitHub Issues Addressed by [Merged Pull Request](https://github.com/cadCAD-org/cadCAD/pull/274): 
 1. cadCAD parallelized simulations run in series
-* GitHub Issue: #242
-2. we need First PSUB at first timestep has a timestep equals to 1 instead of 0
-* GitHub Issue: #250
-3. test the validity of result counts between what is specified by the API and the the expected results 
+	* https://github.com/cadCAD-org/cadCAD/issues/242
+2. test the validity of result counts between what is specified by the API and the the expected results 
 * GitHub Issue: #248
-4. A/B test of result count between releases
+3. A/B test of result count between releases
 * GitHub Issue: #248 
-5. we need Jupyter Server to recognizing cadCAD module
+4. we need Jupyter Server to recognizing cadCAD module
 * Github Issue: #252 
-6. ValueError gives mis-leading error message if catching a non-related ValueError
+5. ValueError gives mis-leading error message if catching a non-related ValueError
 * GitHub Issue: #257
 
 ### ToDo:
