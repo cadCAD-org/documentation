@@ -21,7 +21,7 @@ This version addresses of some of the open cadCAD GitHub issues that will be res
 ### ToDo:
 * Update https://github.com/cadCAD-org/demos with changes to system models
 
-## Labs Platform UAT
+## Labs Platform & cadCAD Beta UAT
 The release of this cadCAD Beta coincides with extended cadCAD functionality specific to and bounded to the Labs Platform. It will be necessary to install the cadCAD Beta release and update Labs models for the model simulations to run on the platform 
 
 ### Steps required for a Labs conversion:
