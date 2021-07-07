@@ -17,6 +17,8 @@ This version addresses of some of the open cadCAD GitHub issues that will be res
 	* https://github.com/cadCAD-org/cadCAD/issues/252
 5. ValueError gives mis-leading error message if catching a non-related ValueError
 	* https://github.com/cadCAD-org/cadCAD/issues/257
+6. cadCAD subset and run hierarchy 
+* GitHub Issue: #247
 
 ### ToDo:
 * Update https://github.com/cadCAD-org/demos with changes to system models
