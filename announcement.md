@@ -28,7 +28,7 @@ The release of this cadCAD Beta coincides with extended cadCAD functionality spe
 
 ### Steps required for a Labs conversion:
 - [ ] Install `cadCAD` pre-release from `staging` branch to run a Labs-ready project locally
-* **Option 1:** Install Using [pip](https://test.pypi.org/project/cadCAD/0.4.27/)** 
+* **Option 1:** Install Using **[pip](https://test.pypi.org/project/cadCAD/0.4.27/)** 
 	```bash
 	pip install -i https://test.pypi.org/simple/ cadCAD==0.4.27
 	```
