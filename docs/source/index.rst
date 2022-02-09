@@ -10,13 +10,13 @@ cadCAD Documentation
 
    This project is under active development.
 
-cadCAD
-------
-
 .. toctree::
 
    Usage and Installation <usage>
-   apilol
-   demos
-   modeling
-   tutorials
+   Crash Course cadCAD <crashcourse>
+   API <api>
+
+Additional Resources
+--------------------
+- :doc:`demos`
+- :doc:`tutorials`

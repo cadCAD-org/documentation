@@ -1,4 +1,4 @@
-APILoL
+API
 ===
 
 .. autosummary::
