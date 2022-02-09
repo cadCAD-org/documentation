@@ -22,8 +22,8 @@ Identifying Systems
 
 .. _diagrams:
 
-Diagraming Systems
-------------------
+Diagramming Systems
+-------------------
 
 .. _dimensions:
 
