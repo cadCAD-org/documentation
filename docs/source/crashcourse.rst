@@ -12,5 +12,5 @@ Before we jump into the fun stuff, let's talk a little bit about what cadCAD is 
 
 .. _cadcad:
 
-cadCAD
-------
+What is cadCAD?
+---------------

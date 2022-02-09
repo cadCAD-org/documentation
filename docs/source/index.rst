@@ -17,3 +17,5 @@ Additional Resources
 --------------------
 - :doc:`demos`
 - :doc:`tutorials`
+- [Source](https://github.com/cadcad-org/cadcad-ri)
+- [Legacy Source](https://github.com/cadcad-org/cadcad)
