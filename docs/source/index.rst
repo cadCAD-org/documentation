@@ -17,12 +17,6 @@ cadCAD
 
    usage
    api
-
-modeling
---------
-
-.. toctree::
-
    demos
    modeling
    tutorials
