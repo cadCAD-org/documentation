@@ -1,5 +1,5 @@
-cadCAD Documentation
-====================
+cadCAD: Documentation
+=====================
 
 **cadCAD** is a Python library for modeling complex, adaptive, and dynamical systems.
 
@@ -13,7 +13,7 @@ cadCAD Documentation
 .. toctree::
 
    Usage and Installation <usage>
-   Crash Course cadCAD <crashcourse>
+   Crash Course <crashcourse>
    API <api>
 
 Additional Resources

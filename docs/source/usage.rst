@@ -10,4 +10,10 @@ To use cadCAD, first install it using pip:
 
 .. code-block:: console
 
-   (.venv) $ pip install cadcad
+   $ pip install cadcad
+
+You may also be interested in the cadCAD CLI tool which allows quick and easy scaffolding of skeletal structure for new models:
+
+.. code-block:: console
+
+   $ pip install cadcad-cli
