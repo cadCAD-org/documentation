@@ -17,13 +17,13 @@ What is cadCAD?
 
 .. _systems:
 
-Systems
--------
+Identifying Systems
+-------------------
 
 .. _diagrams:
 
-Diagrams
---------
+Diagraming Systems
+------------------
 
 .. _dimensions:
 
