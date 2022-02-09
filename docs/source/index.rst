@@ -16,7 +16,7 @@ cadCAD
 .. toctree::
 
    Usage and Installation <usage>
-   api
+   apilol
    demos
    modeling
    tutorials

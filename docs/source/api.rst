@@ -1,4 +1,4 @@
-APILOL
+APILoL
 ===
 
 .. autosummary::
