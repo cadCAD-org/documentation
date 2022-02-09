@@ -22,6 +22,7 @@ modeling
 --------
 
 .. toctree::
+
    demos
    modeling
    tutorials
