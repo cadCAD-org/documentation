@@ -1,4 +1,4 @@
-Welcome to Lumache's documentation!
+Welcome to cadCAD's documentation!
 ===================================
 
 **cadCAD** is a Python library for modeling complex, adaptive, and dynamical systems.
