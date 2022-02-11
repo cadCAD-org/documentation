@@ -7,7 +7,7 @@ Dimensions
 .. code-block:: python
 
    class Dimension:
-      def __init__(self, name, type):
+      def __init__(self, name, dtype):
          ...
 
 .. code-block:: python
