@@ -19,9 +19,9 @@ Dimensions
    # enforce these restrictions. An example of subclassing numpy.ndarray
    # is given below.
    
-   class TwoByTwoInt(np.ndarray):
+   class TwoByTwoInt64(numpy.ndarray):
       def __new__(cls):
-         return super().__new__(cls, (2, 2), int)
+         return super().__new__(cls, (2, 2), numpy.int64)
 
    # Once a subclass exists that imposes our shape and/or subtypes:
 
