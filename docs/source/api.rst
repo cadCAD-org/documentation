@@ -25,7 +25,7 @@ Dimensions
 
    # Once a subclass exists that imposes our shape and/or subtypes:
 
-   c = Dimension("c", TwoByTwoInt)
+   c = Dimension("c", TwoByTwoInt64)
 
 .. autosummary::
    :toctree: generated
