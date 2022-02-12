@@ -47,11 +47,26 @@ Spaces
    # throws due to z.name and Z.name being equal
    s = Space((x, y, z, Z))
 
-   # To resolve this, we can supply an key override dictionary as our
+   # To resolve this, we can supply a key override dictionary as our
    # second param
    s = Space((x, y, z, Z), {"z": "zed"})
 
    print(s.dimensions.keys()) # ('x', 'y', 'z', 'zed')
+
+   # We could even support a list of strings in the key override dict
+   # to handle more than one name collision
+
+   a = Dimension(int, "a")
+   b = Dimension(int, "a")
+   c = Dimension(int, "a")
+   d = Dimension(int, "a")
+
+   s = Space((a, b, c, d)) # Throws exception
+
+   # Fixed with...
+   s = Space((a, b, c, d), {"a": ["my_a", "my_other_a", "my_other_other_a"]})
+
+   print(s.dimensions.keys()) # ('a', 'my_a', 'my_other_a', 'my_other_other_a')
 
 .. autosummary::
    :toctree: generated
