@@ -93,7 +93,7 @@ Spaces
    print(s.dimensions.keys()) 
    # >>> ('a', 'my_a', 'my_other_a', 'my_other_other_a')
 
-   print([d.name for d in s.dimensions])
+   print([d.name for d in s.dimensions.values()])
    # >>> ('a', 'a', 'a', 'a')
 
    # it may be clear that having a bunch of dimensions named "a"
