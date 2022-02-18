@@ -33,9 +33,8 @@ considered, we can utilize subclassing:
 Dimension.copy()
 ================
 
-By default, Dimensions are immutable. We can copy a Dimension which
-results in a new Dimension being instantiated with the same properties
-as the source.
+We can copy a Dimension which results in a new Dimension being
+instantiated with the same properties as the source.
 
 .. code-block:: python
 
@@ -56,3 +55,22 @@ Space. To address this, you can specify a new name at the time of copy:
    a2 = a.copy("a2")
 
    print(a.name, a2.name) # 'a', 'a2'
+
+Dimension.freeze()
+==================
+
+Freezing a dimension makes it immutable. Setter methods will no longer
+result in updated properties. In order to "update" a frozen Dimension,
+one would need to make a copy and shadow the same variable name:
+
+.. code-block:: python
+
+   a = Dimension(int, "a")
+   a.name("b") # a.name => 'b'
+
+   a.freeze()
+   a.name("c") # Raised exception
+
+   # We can do an inline-replace of a with an updated copy via variable
+   # shadowing
+   a = a.copy("c") # a.name => 'c'
