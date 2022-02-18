@@ -40,7 +40,7 @@ Dimensions
       def is_equivalent(other: Dimension) -> bool
 
 Examples
-********
+========
 
 This is an example.
 
