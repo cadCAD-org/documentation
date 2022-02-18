@@ -68,6 +68,55 @@ Spaces
 
    print(s.dimensions.keys()) # ('a', 'my_a', 'my_other_a', 'my_other_other_a')
 
+   # While providing alternative keys/names to our space does avoid conflicts
+   # it doesn't always result in clarity. It could be confusing to have many
+   # dimensions with the same local name (Dimension.name). To address this, you
+   # may override the local name by providing an override boolean a the time of
+   # space instantiation:
+   s = Space((a, b, c, d), names=["a", "my_a", "my_other_a", "my_other_other_a"], override=True)
+   print(s.my_other_a.name) # "my_other_a"
+
+   # The same override option is available with the from_dict() method:
+   space_dict = {"a": a, "my_a": b, "my_other_a": c, "my_other_other_a": d}
+   s = Space.from_dict(space_dict, override=True)
+
+   print(s.my_other_a.name) # "my_other_a"
+
+Blocks
+------
+
+.. code-block:: python
+
+   class Block:
+      def __init__(self, domain, codomain, params, fn):
+         ...
+
+.. code-block:: python
+
+   # A collection of ages will define our initial state space
+   d1 = Dimension(int, "Alice", "Age of Alice")
+   d2 = Dimension(int, "Bob", "Age of Bob")
+   d3 = Dimension(int, "Carol", "Age of Carol")
+   d4 = Dimension(int, "David", "Age of David")
+
+   # And an average of all the above ages will define our updated state space
+   d5 = Dimension(float, "Average", "Average age")
+
+   s1 = Space((d1, d2, d3, d4)) # Represents a domain (initial state space)
+   s2 = Space((d5)) # Represents a codomain (updated state space)
+   
+   p1 = Space() # Represents our param space (empty)
+
+   b1 = Block(s1, s2, p1, lambda s: {"Average": sum(s.values()) / len(s.keys())}) # This function returns an average of ages
+
+   init_point = {"Alice": 12, "Bob": 54, "Carol": 76, "David": 25} # Conforms to s1
+
+   b1.is_domain_point(init_point) # true
+   
+   next_point = b1.run(init_point)
+
+   b1.is_codomain_point(next_point) # true
+
 .. autosummary::
    :toctree: generated
 
