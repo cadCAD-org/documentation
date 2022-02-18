@@ -27,13 +27,24 @@ Dimensions
 
    c = Dimension(TwoByTwoInt64, "c", "my special dimension")
 
+   # To create a new dimension from another, we can use .copy()
+   a2 = a.copy()
+
+   # This creates a new Dimension with the same properties (type, name,
+   # and description) as the source. To create a new copy that will not
+   # cause conflict when being added to the same space as the original,
+   # we can specify a new name at the time of copy:
+
+   a3 = a.copy("a3")
+   print(a.name, a2.name, a3.name) # "a", "a", "a3"
+
 Spaces
 ------
 
 .. code-block:: python
 
    class Space:
-      def __init__(self, dimensions, overrides={}):
+      def __init__(self, dimensions, names = None, override=False):
          ...
 
 .. code-block:: python
@@ -48,13 +59,28 @@ Spaces
    s = Space((x, y, z, Z))
 
    # To resolve this, we can supply a key override dictionary as our
-   # second param
-   s = Space((x, y, z, Z), {"z": "zed"})
+   # second parameter
+   s = Space((x, y, z, Z), names = ["x", "y", "z", "zed"])
+
+   # Alternatively, we can first create a space without collisions and
+   # then append a single dimension with an explict name. By default,
+   # spaces are immutable and a new space will be created for this reason
+   # whenever we append a new dimension
+   s = Space((x, y, z))
+   s2 = s.append(Z, "zed") # A new space
+
+   # Python allows us to reuse variable names so we are able to do:
+   s = Space((x, y, z))
+   s = s.append(Z, "zed")
+
+   # For maximally explicit declaration of a new space, it can be created
+   # from a dictionary:
+   space_dict = {"x": x, "y": y, "z": z, "zed": Z}
+   s = Space.from_dict(space_dict)
 
    print(s.dimensions.keys()) # ('x', 'y', 'z', 'zed')
 
-   # We could even support a list of strings in the key override dict
-   # to handle more than one name collision
+   # Consider the case of many collisions
 
    a = Dimension(int, "a")
    b = Dimension(int, "a")
@@ -64,7 +90,16 @@ Spaces
    s = Space((a, b, c, d)) # Throws exception
 
    # Fixed with...
-   s = Space((a, b, c, d), {"a": ["my_a", "my_other_a", "my_other_other_a"]})
+   s = Space((a, b, c, d), ["a", "my_a", "my_other_a", "my_other_other_a"])
+
+   # Or by using the from_dict method which is passed a predetermined dict
+   # without key/name conflicts
+   space_dict = {"a": a, "my_a": b, "my_other_a": c, "my_other_other_a": d}
+   s = Space.from_dict(space_dict)
+
+   # A dimensions local name (Dimension.name) will remain 'a' while only its
+   # key in the dimensions dict of a space will be updated to avoid conflicts
+   print([d.name for d in s.dimensions]) # ('a', 'a', 'a', 'a')
 
    print(s.dimensions.keys()) # ('a', 'my_a', 'my_other_a', 'my_other_other_a')
 
