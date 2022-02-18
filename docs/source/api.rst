@@ -6,41 +6,6 @@ API
 Dimensions
 **********
 
-.. code-block:: python
-
-   @dataclass
-   class Dimension:
-      __dtype: type
-      __name: str
-      __description: str = ""
-      _frozen: bool
-
-      @dtype.setter
-      def dtype(dtype: type) -> None
-
-      @property
-      def dtype() -> type
-
-      @name.setter
-      def name(name: str) -> None
-
-      @property
-      def name() -> str
-
-      @description.setter
-      def description(description: str) -> None
-
-      @property
-      def description() -> str
-
-      def freeze() -> None
-
-      def is_frozen() -> bool
-
-      def is_equivalent(other: Dimension) -> bool
-
-      def copy(name: str, description: str) -> Dimension
-
 Dimension()
 ===========
 
@@ -65,7 +30,7 @@ considered, we can utilize subclassing:
    # Once a subclass exists that imposes our shape and/or subtypes:
    c = Dimension(TwoByTwoInt64, "c", "my special dimension")
 
-Dimension.copy(str)
+Dimension.copy()
 ================
 
 By default, Dimensions are immutable. We can copy a Dimension which
