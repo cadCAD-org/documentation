@@ -147,10 +147,14 @@ Blocks
    init_point = {"Alice": 12, "Bob": 54, "Carol": 76, "David": 25} # Conforms to s1
 
    b1.is_domain_point(init_point) # true
+   b1.is_codomain_point(init_point) # false
    
+   # Internally, I believe the run method would perform self.is_domain_point(init_point)
+   # and self.is_codomain_point(fn) to ensure the returned point conforms to codomain space
    next_point = b1.run(init_point)
 
    b1.is_codomain_point(next_point) # true
+   b1.is_domain_point(next_point) # false
 
 .. autosummary::
    :toctree: generated
