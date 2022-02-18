@@ -44,7 +44,7 @@ Spaces
 .. code-block:: python
 
    class Space:
-      def __init__(self, dimensions, names = None, override=False):
+      def __init__(self, dimensions, names = None, override = False):
          ...
 
 .. code-block:: python
@@ -108,12 +108,12 @@ Spaces
    # dimensions with the same local name (Dimension.name). To address this, you
    # may override the local name by providing an override boolean a the time of
    # space instantiation:
-   s = Space((a, b, c, d), names=["a", "my_a", "my_other_a", "my_other_other_a"], override=True)
+   s = Space((a, b, c, d), names = ["a", "my_a", "my_other_a", "my_other_other_a"], override = True)
    print(s.my_other_a.name) # "my_other_a"
 
    # The same override option is available with the from_dict() method:
    space_dict = {"a": a, "my_a": b, "my_other_a": c, "my_other_other_a": d}
-   s = Space.from_dict(space_dict, override=True)
+   s = Space.from_dict(space_dict, override = True)
 
    print(s.my_other_a.name) # "my_other_a"
 
