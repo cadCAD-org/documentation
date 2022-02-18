@@ -121,8 +121,3 @@ Blocks
 
    b1.is_codomain_point(next_point) # true
    b1.is_domain_point(next_point) # false
-
-.. autosummary::
-   :toctree: generated
-
-   cadcad
