@@ -59,7 +59,7 @@ Space. To address this, you can specify a new name at the time of copy:
 Dimension.freeze()
 ==================
 
-Freezing a dimension makes it immutable. Setter methods will no longer
+Freezing a Dimension makes it immutable. Setter methods will no longer
 result in updated properties. In order to "update" a frozen Dimension,
 one would need to make a copy and shadow the same variable name:
 
@@ -71,6 +71,6 @@ one would need to make a copy and shadow the same variable name:
    a.freeze()
    a.name("c") # Raised exception
 
-   # We can do an inline-replace of a with an updated copy via variable
-   # shadowing
    a = a.copy("c") # a.name => 'c'
+
+*Note:* Copies of frozen Dimensions are unfrozen by default.
