@@ -142,7 +142,7 @@ Blocks
    
    p1 = Space() # Represents our param space (empty)
 
-   b1 = Block(s1, s2, p1, lambda s: {"Average": sum(s.values()) / len(s.keys())}) # This function returns an average of ages
+   b1 = Block(s1, s2, p1, lambda s: {"Average": sum(s.values()) / len(s.keys())}) # Average age
 
    init_point = {"Alice": 12, "Bob": 54, "Carol": 76, "David": 25} # Conforms to s1
 
