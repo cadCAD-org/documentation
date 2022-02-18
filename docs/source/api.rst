@@ -1,14 +1,48 @@
+===
 API
 ===
 
+**********
 Dimensions
-----------
+**********
 
 .. code-block:: python
 
+   @dataclass
    class Dimension:
-      def __init__(self, dtype, name, description = None):
-         ...
+      __dtype: type
+      __name: str
+      __description: str = ""
+      _frozen: bool
+
+      @dtype.setter
+      def dtype(dtype: type) -> None
+
+      @property
+      def dtype() -> type
+
+      @name.setter
+      def name(name: str) -> None
+
+      @property
+      def name() -> str
+
+      @description.setter
+      def description(description: str) -> None
+
+      @property
+      def description() -> str
+
+      def freeze() -> None
+
+      def is_frozen() -> bool
+
+      def is_equivalent(other: Dimension) -> bool
+
+Examples
+********
+
+This is an example.
 
 .. code-block:: python
 
