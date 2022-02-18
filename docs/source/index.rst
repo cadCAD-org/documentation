@@ -12,11 +12,11 @@ cadCAD: Documentation
    Usage and Installation <usage>
    Crash Course <crashcourse>
    API <api>
-   API Exploration <explore>
 
 Additional Resources
 --------------------
 - :doc:`demos`
 - :doc:`tutorials`
+- :doc:`API Exploration<explore>`
 - `Source <https://github.com/cadcad-org/cadcad-ri>`_
 - `Source (Legacy) <https://github.com/cadcad-org/cadcad>`_
