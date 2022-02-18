@@ -74,3 +74,20 @@ one would need to make a copy and shadow the same variable name:
    a = a.copy("c") # a.name => 'c'
 
 *Note:* Copies of frozen Dimensions are unfrozen by default.
+
+Dimension.is_frozen()
+=====================
+
+This method returns a `bool` indicating whether or not the object is
+frozen.
+
+.. code-block:: python
+
+   a = Dimension(int, "a")
+   a.is_frozen() # false
+   
+   a.freeze()
+   a.is_frozen() # true
+
+   aa = a.copy()
+   aa.is_frozen() # false
