@@ -12,6 +12,7 @@ cadCAD: Documentation
    Usage and Installation <usage>
    Crash Course <crashcourse>
    API <api>
+   API Exploration <explore>
 
 Additional Resources
 --------------------
