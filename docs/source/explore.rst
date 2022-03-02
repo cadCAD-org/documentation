@@ -121,3 +121,19 @@ Blocks
 
    b1.is_codomain_point(next_point) # true
    b1.is_domain_point(next_point) # false
+
+******
+Points
+******
+
+.. code-block:: python
+
+   # Setup a single-dimension space to create points of
+   d1 = Dimension(int, "Age", "My Age")
+   s1 = Space((d1))
+
+   # A point is returned as the supplied point data satisfies s1
+   p1 = Point(s1, {"Age": 35})
+   
+   # This would raise an exception since the supplied point data does NOT satisfy s1
+   p2 = Point(s1, {"Name": "Tyler"})
