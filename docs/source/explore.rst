@@ -129,7 +129,9 @@ Points
 .. code-block:: python
 
    # Note: Instantiation of a point MUST validate that supplied point data
-   # satisfies the schema of the supplied space
+   # satisfies the schema of the supplied space; if the point data does NOT
+   # satisfy the space schema, we raise an exception -- otherwise, return
+   # the point as per normal
 
    # Setup a single-dimension space to create points of
    d1 = Dimension(int, "Age", "My Age")
@@ -141,9 +143,23 @@ Points
    # This would raise an exception since the supplied point data does NOT satisfy s1
    p2 = Point(s1, {"Name": "Tyler"})
 
-   # The meta data (at least the name, if not both name and description) of the Space
-   # is retained in a valid point along side the point data itself
-   print(p1) # Point{"space": "My Space", "Age": 35}
+   # The space that was supplied at the time of instantiation should be added to the
+   # point object
+   print(p1.space) # <Space>
+   print(p1.space.name) # 'My Space'
+   print(p1.space.description) # 'My Space is a social network lol'
 
-   # If we choose to support both space name and description
-   print(p1) # Point{"name": "My Space", "description": "My Space is a social network lol", "Age": 35}
+   # The reason we add the space to the point itself is so that we can easily check
+   # any point against a space for equality
+   print(p1.space == s1) # True
+   
+   s2 = Space(())
+   print(p1.space == s2) # False
+
+   # Because our point data must have satisfied the space schema during instantiation
+   # we dont need to do any sort of type checks afterwards
+
+   print(p1.space.dimensions.Age.dtype == type(p1.Age)) # No need to do this!
+
+   # Lastly, we should be able to access all data on the point like so
+   print(p1.Age) # 35
