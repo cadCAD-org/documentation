@@ -128,12 +128,22 @@ Points
 
 .. code-block:: python
 
+   # Note: Instantiation of a point MUST validate that supplied point data
+   # satisfies the schema of the supplied space
+
    # Setup a single-dimension space to create points of
    d1 = Dimension(int, "Age", "My Age")
-   s1 = Space((d1))
+   s1 = Space((d1), "My Space", "My Space is a social network lol")
 
    # A point is returned as the supplied point data satisfies s1
    p1 = Point(s1, {"Age": 35})
    
    # This would raise an exception since the supplied point data does NOT satisfy s1
    p2 = Point(s1, {"Name": "Tyler"})
+
+   # The meta data (at least the name, if not both name and description) of the Space
+   # is retained in a valid point along side the point data itself
+   print(p1) # Point{"space": "My Space", "Age": 35}
+
+   # If we choose to support both space name and description
+   print(p1) # Point{"name": "My Space", "description": "My Space is a social network lol", "Age": 35}
