@@ -158,34 +158,34 @@ Points
 Trajectories
 ************
 
-   .. code-block:: python
+.. code-block:: python
 
-      d1 = Dimension(int, "A")
-      d2 = Dimension(str, "S")
-      g3 = Dimension(str, "L")
+   d1 = Dimension(int, "A")
+   d2 = Dimension(str, "S")
+   g3 = Dimension(str, "L")
 
-      s1 = Space((d1), "A")
-      s2 = Space((d1, d2), "A/S")
-      s3 = Space((d1, d2, d3), "A/S/L")
+   s1 = Space((d1), "A")
+   s2 = Space((d1, d2), "A/S")
+   s3 = Space((d1, d2, d3), "A/S/L")
 
-      p1 = Point(s1, {"A": 35})
-      p2 = Point(s2, {"A": 35, "S": "Male"})
+   p1 = Point(s1, {"A": 35})
+   p2 = Point(s2, {"A": 35, "S": "Male"})
 
-      def fn(point, codomain):
-         return Point(codomain, {"A": point.A, "S": point.S, "L": "Utah"})
+   def fn(point, codomain):
+      return Point(codomain, {"A": point.A, "S": point.S, "L": "Utah"})
 
-      # Create a block that takes an s2 point (we created one called p2 above) and
-      # adds a hardcoded location of "Utah" to create a new s3 point which is returned.
-      b1 = Block(fn, s2, s3) # fn, domain, codomain
+   # Create a block that takes an s2 point (we created one called p2 above) and
+   # adds a hardcoded location of "Utah" to create a new s3 point which is returned.
+   b1 = Block(fn, s2, s3) # fn, domain, codomain
 
-      t1 = Trajectory(p1) # You must initialize with one or more point; at this point t1 can only contain s1 type points
-      t2 = Trajectory(p2) # Every point in this trajectory must be of type s2
+   t1 = Trajectory(p1) # You must initialize with one or more point; at this point t1 can only contain s1 type points
+   t2 = Trajectory(p2) # Every point in this trajectory must be of type s2
 
-      print(t1) # (<point>)
+   print(t1) # (<point>)
 
-      # We can add to our t2 trajectory another s2 point by running a block!
-      # p2 is a point that conforms to s2; the blocks .map() runs fn() which
-      # returns a new point that conforms to our codomain of s3
-      t1.add_point(b1.map(p2)) # The s3 point just added: Point{"A": 35, "S", "Male", "L": "Utah"}
+   # We can add to our t2 trajectory another s2 point by running a block!
+   # p2 is a point that conforms to s2; the blocks .map() runs fn() which
+   # returns a new point that conforms to our codomain of s3
+   t1.add_point(b1.map(p2)) # The s3 point just added: Point{"A": 35, "S", "Male", "L": "Utah"}
 
-      print(t1) # (<point>, <point>)
+   print(t1) # (<point>, <point>)
