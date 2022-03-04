@@ -8,12 +8,6 @@ Spaces
 
 .. code-block:: python
 
-   class Space:
-      def __init__(self, dimensions, names = None, override = False):
-         ...
-
-.. code-block:: python
-
    x = Dimension(int, "x")
    y = Dimension(int, "y")
    z = Dimension(int, "z")
@@ -88,12 +82,6 @@ Blocks
 
 .. code-block:: python
 
-   class Block:
-      def __init__(self, domain, codomain, params, fn):
-         ...
-
-.. code-block:: python
-
    # A collection of ages will define our initial state space
    d1 = Dimension(int, "Alice", "Age of Alice")
    d2 = Dimension(int, "Bob", "Age of Bob")
@@ -108,19 +96,21 @@ Blocks
    
    p1 = Space() # Represents our param space (empty)
 
-   b1 = Block(s1, s2, p1, lambda s: {"Average": sum(s.values()) / len(s.keys())}) # Average age
+   def fn(point, codomain):
+      return Point(codomain, {"Average": sum(point.values()) / len(point)})
 
-   init_point = {"Alice": 12, "Bob": 54, "Carol": 76, "David": 25} # Conforms to s1
+   # Domain and codomain arguments can be single space objects or collections of space objects
+   b1 = Block(fn, s1, s2, p1) # Average age
 
-   b1.is_domain_point(init_point) # true
-   b1.is_codomain_point(init_point) # false
+   init_point = Point(s1, {"Alice": 12, "Bob": 54, "Carol": 76, "David": 25}) # Conforms to s1
+
+   print(init_point.space == s1) # true
+   print(init_point.space == s2) # false
    
-   # Internally, I believe the run method would perform self.is_domain_point(init_point)
-   # and self.is_codomain_point(fn) to ensure the returned point conforms to codomain space
-   next_point = b1.run(init_point)
+   next_point = b1.map(init_point)
 
-   b1.is_codomain_point(next_point) # true
-   b1.is_domain_point(next_point) # false
+   print(next_point.space == s2) # true
+   print(next_point.space == s1) # false
 
 ******
 Points
@@ -163,3 +153,39 @@ Points
 
    # Lastly, we should be able to access all data on the point like so
    print(p1.Age) # 35
+
+************
+Trajectories
+************
+
+   .. code-block:: python
+
+      d1 = Dimension(int, "A")
+      d2 = Dimension(str, "S")
+      g3 = Dimension(str, "L")
+
+      s1 = Space((d1), "A")
+      s2 = Space((d1, d2), "A/S")
+      s3 = Space((d1, d2, d3), "A/S/L")
+
+      p1 = Point(s1, {"A": 35})
+      p2 = Point(s2, {"A": 35, "S": "Male"})
+
+      def fn(point, codomain):
+         return Point(codomain, {"A": point.A, "S": point.S, "L": "Utah"})
+
+      # Create a block that takes an s2 point (we created one called p2 above) and
+      # adds a hardcoded location of "Utah" to create a new s3 point which is returned.
+      b1 = Block(fn, s2, s3) # fn, domain, codomain
+
+      t1 = Trajectory(p1) # You must initialize with one or more point; at this point t1 can only contain s1 type points
+      t2 = Trajectory(p2) # Every point in this trajectory must be of type s2
+
+      print(t1) # (<point>)
+
+      # We can add to our t2 trajectory another s2 point by running a block!
+      # p2 is a point that conforms to s2; the blocks .map() runs fn() which
+      # returns a new point that conforms to our codomain of s3
+      t1.add_point(b1.map(p2))
+
+      print(t1) # (<point>, <point>)
