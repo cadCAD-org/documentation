@@ -186,6 +186,6 @@ Trajectories
       # We can add to our t2 trajectory another s2 point by running a block!
       # p2 is a point that conforms to s2; the blocks .map() runs fn() which
       # returns a new point that conforms to our codomain of s3
-      t1.add_point(b1.map(p2))
+      t1.add_point(b1.map(p2)) # The s3 point just added: Point{"A": 35, "S", "Male", "L": "Utah"}
 
       print(t1) # (<point>, <point>)
