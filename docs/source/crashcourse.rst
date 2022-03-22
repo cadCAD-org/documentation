@@ -15,14 +15,14 @@ Before we jump into the fun stuff, let's talk a little bit about what cadCAD is 
 What is cadCAD?
 ---------------
 
-Complex Adaptive Dynamics Computer Aided Design (*cadCAD*) is a framework -- often we consider it to be a full-fledged *language* -- for encoding Generalized Dynamical Systems (GDS) as computer programs. Originally built for internal use at [BlockScience](https://block.science), the original architecture was designed by Dr. Michael Zargham, Kurtis Koch, and Matt Barlin in 2017. The first implementation was put into code by Joshua Jodesty later that same year. In 2019, the software was named *cadCAD* and was opensourced in collaboration with the [Commons Stack](https://commonsstack.org).
+Complex Adaptive Dynamics Computer Aided Design (*cadCAD*) is a framework -- often we consider it to be a full-fledged *language* -- for encoding Generalized Dynamical Systems (GDS) as computer programs. Originally built for internal use at `BlockScience<https://block.science>`, the original architecture was designed by Dr. Michael Zargham, Kurtis Koch, and Matt Barlin in 2017. The first implementation was put into code by Joshua Jodesty later that same year. In 2019, the software was named *cadCAD* and was opensourced in collaboration with the `Commons Stack<https://commonsstack.org>`.
 
 .. _systems:
 
 Identifying Systems
 -------------------
 
-What exactly are we talking about when we say *systems*? How would we know a system if and when we saw one? In the context of *cadCAD*, we are most often referring to [dynamical systems](https://en.wikipedia.org/wiki/Dynamical_system). Dynamical systems are systems in which a point in ambient space and its time dependency can be described through a function. At any given moment in time, the dynamical system has a state which represents a point in its associated state space.
+What exactly are we talking about when we say *systems*? How would we know a system if and when we saw one? In the context of *cadCAD*, we are most often referring to `dynamical systems<https://en.wikipedia.org/wiki/Dynamical_system>`. Dynamical systems are systems in which a point in ambient space and its time dependency can be described through a function. At any given moment in time, the dynamical system has a state which represents a point in its associated state space.
 
 Put more simply, a dynamical system -- through the use of functions -- define the parameters that restrict information coming into the system and information leaving the system.
 
@@ -95,14 +95,13 @@ The codomain could be represented with:
     "averageAge": float
   }
 
-And perhaps our block function could be (in pseudo-code and written for clarity of concept):
+And perhaps our block function could be (in Python and written for clarity of concept):
 
-.. code-block::
-  function calculateAverage(point) {
+.. code-block:: Python
+
+  def calculate_average(point): 
     average = (point["aliceAge"] + point["bobAge"] + point["charlieAge"]) / 3
     return {"averageAge": average}
-  }
-
 
 In order for our block to do something, we must first create a starting point which can serve as our initial input to the block:
 
