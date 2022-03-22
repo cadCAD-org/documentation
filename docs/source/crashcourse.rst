@@ -15,14 +15,14 @@ Before we jump into the fun stuff, let's talk a little bit about what cadCAD is 
 What is cadCAD?
 ---------------
 
-Complex Adaptive Dynamics Computer Aided Design (*cadCAD*) is a framework -- often we consider it to be a full-fledged *language* -- for encoding Generalized Dynamical Systems (GDS) as computer programs. Originally built for internal use at `BlockScience<https://block.science>`, the original architecture was designed by Dr. Michael Zargham, Kurtis Koch, and Matt Barlin in 2017. The first implementation was put into code by Joshua Jodesty later that same year. In 2019, the software was named *cadCAD* and was opensourced in collaboration with the `Commons Stack<https://commonsstack.org>`.
+Complex Adaptive Dynamics Computer Aided Design (*cadCAD*) is a framework -- often we consider it to be a full-fledged *language* -- for encoding Generalized Dynamical Systems (GDS) as computer programs. Originally built for internal use at `BlockScience <https://block.science>`_, the original architecture was designed by Dr. Michael Zargham, Kurtis Koch, and Matt Barlin in 2017. The first implementation was put into code by Joshua Jodesty later that same year. In 2019, the software was named *cadCAD* and was opensourced in collaboration with the `Commons Stack <https://commonsstack.org>`_.
 
 .. _systems:
 
 Identifying Systems
 -------------------
 
-What exactly are we talking about when we say *systems*? How would we know a system if and when we saw one? In the context of *cadCAD*, we are most often referring to `dynamical systems<https://en.wikipedia.org/wiki/Dynamical_system>`. Dynamical systems are systems in which a point in ambient space and its time dependency can be described through a function. At any given moment in time, the dynamical system has a state which represents a point in its associated state space.
+What exactly are we talking about when we say *systems*? How would we know a system if and when we saw one? In the context of *cadCAD*, we are most often referring to `dynamical systems <https://en.wikipedia.org/wiki/Dynamical_system>`_. Dynamical systems are systems in which a point in ambient space and its time dependency can be described through a function. At any given moment in time, the dynamical system has a state which represents a point in its associated state space.
 
 Put more simply, a dynamical system -- through the use of functions -- define the parameters that restrict information coming into the system and information leaving the system.
 
@@ -123,16 +123,6 @@ If we were 'execute' our block by passing in the above point, our block function
 
 A few things must be noted here: first, the point we fed our block HAD to satisfy the shape/restrictions imposed by our domain space. If you recall, our space defined three pieces of data all of which were of type *int*. The point we constructed as our initial point does indeed satisfy this space, so the block was able to complete the transformation of the point into a new point which itself satisfies the requirements imposed by our codomain space.
 
-.. _dynamics:
-
-Dynamics
---------
-
-.. _trajectories:
-
-Trajectories
-------------
-
 Resources
 ---------
-- [cadCAD Formal Specification](https://raw.githubusercontent.com/cadCAD-org/cadcad-ri/master/docs/formal_specification.pdf)
+- `cadCAD Formal Specification <https://raw.githubusercontent.com/cadCAD-org/cadcad-ri/master/docs/formal_specification.pdf>`_
