@@ -40,7 +40,7 @@ Dimensions
 
 Dimensions are a core concept in dynamical systems and as such are very important in cadCAD. In their most basic form, a dimension is simply a data type which sufficiently restricts a given piece of information to a specific 'shape'. Dimensions are the most atomic-level unit of information with which we work and the composition of one or more dimensions make up our state space.
 
-Some examples of dimensions include: `int`, `string`, `int64` and `float`
+Some examples of dimensions include: *int*, *string*, *int64* and *float*
 
 However, language-specific primitive types as demonstrated above are not the only permissible dimensions in dynamical systems. We can construct our own arbitrary data types and use those as dimensions to. Classes and Structs are examples of this flexibility.
 
@@ -78,48 +78,49 @@ For our dimensions, we need only two to be defined: *int* (describes our individ
 
 Our single block system will need an input space (domain) defining the data coming into the block as well as an output space (codomain). Our first space could be represented as such (expressed in JSON for demonstration purposes):
 
-```
-{
-  "aliceAge": int,
-  "bobAge": int,
-  "charlieAge": int
-}
-```
+.. code-block:: JSON
+
+  {
+    "aliceAge": int,
+    "bobAge": int,
+    "charlieAge": int
+  }
+
 
 The codomain could be represented with:
 
-```
-{
-  "averageAge": float
-}
-```
+.. code-block:: JSON
+
+  {
+    "averageAge": float
+  }
 
 And perhaps our block function could be (in pseudo-code and written for clarity of concept):
 
-```
-function calculateAverage(point) {
-  average = (point["aliceAge"] + point["bobAge"] + point["charlieAge"]) / 3
-  return {"averageAge": average}
-}
-```
+.. code-block::
+  function calculateAverage(point) {
+    average = (point["aliceAge"] + point["bobAge"] + point["charlieAge"]) / 3
+    return {"averageAge": average}
+  }
+
 
 In order for our block to do something, we must first create a starting point which can serve as our initial input to the block:
 
-```
-{
-  "aliceAge": 10,
-  "bobAge": 20,
-  "charlieAge": 30
-}
-```
+.. code-block:: JSON
+
+  {
+    "aliceAge": 10,
+    "bobAge": 20,
+    "charlieAge": 30
+  }
 
 If we were 'execute' our block by passing in the above point, our block function *calculateAverage* would return a new point with our calculated average age.
 
-```
-{
-  "averageAge": 20.0
-}
-```
+.. code-block:: JSON
+
+  {
+    "averageAge": 20.0
+  }
 
 A few things must be noted here: first, the point we fed our block HAD to satisfy the shape/restrictions imposed by our domain space. If you recall, our space defined three pieces of data all of which were of type *int*. The point we constructed as our initial point does indeed satisfy this space, so the block was able to complete the transformation of the point into a new point which itself satisfies the requirements imposed by our codomain space.
 
